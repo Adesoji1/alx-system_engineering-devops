@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Simple script that prints using a while loop:
+# bad luck in the 4th iteration.
+# good luck in the 8th iteration.
+# Best School for the other iterations.
+
+COUNTER=1
+while [ $COUNTER -ne 11 ]
+do
+    if [ $COUNTER -eq 4 ]
+    then
+         echo "bad luck"
+    elif [ $COUNTER -eq 8 ]
+    then
+         echo "good luck"
+    else
+         echo "Best School"
+    fi
+
+    COUNTER=$((COUNTER + 1))
+done
