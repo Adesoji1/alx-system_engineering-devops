@@ -56,5 +56,5 @@
 
 ====================================================================================
 # AUTHOR
-<h4> by: Adesoji Alu <a href="https://github.com/Adesoji1">  </a> </h4>
+<h4> by: Adesoji Alu <a href="https://github.com/Adesoji1">Adesoji Alu</a> </h4>
 
