@@ -1,1 +1,2 @@
-This is a shell basics repo
+#!/bin/bash
+echo "current directory is `pwd`"

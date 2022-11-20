@@ -1,6 +1,5 @@
-# Fix 500 error when a GET HTTP method is requested to Apache web server
-
-exec {'replace':
-  provider => shell,
-  command  => 'sed -i "s/phpp/php/g" /var/www/html/wp-settings.php'
+# Fixes a wordpress site running on apache2
+exec { 'fix-wordpress':
+  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php; sudo service apache2 restart',
+  path    => ['/bin', '/usr/bin', '/usr/sbin']
 }

@@ -24,18 +24,19 @@ frontend www-http
     default_backend www-backend
     redirect scheme https code 301 if !{ ssl_fc }
 
+
 frontend www-https
-    bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.bdbnb.site.pem
-    reqadd X-Forwarded-Proto:\ https
-    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
-    use_backend letsencrypt-backend if letsencrypt-acl
-    default_backend www-backend
+   bind   0.0.0.0:443 ssl crt /etc/letsencrypt/live/www.onejackson.tech/all.pem
+   reqadd X-Forwarded-Proto:\ https
+   acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend letsencrypt-backend if letsencrypt-acl
+   default_backend www-backend
 
 backend www-backend
-    balance  roundrobin
-    redirect scheme https if !{ ssl_fc }
-    server 375-web-01 104.196.168.90:80 check
-    server 375-web-02 35.196.46.172:80 check
+   balance  roundrobin
+   redirect scheme https if !{ ssl_fc }
+   server 29614-web-01 3.238.123.75:80 check
+   server 29614-web-02 44.211.29.235:80 check
 
 backend letsencrypt-backend
-    server letsencrypt 127.0.0.1:54321
+   server letsencrypt 127.0.0.1:54321
